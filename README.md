@@ -1,39 +1,42 @@
-# Parth Agencies — Royal Emerald Luxe
+# Parth Agencies · Royal Emerald Luxe
 
-Premium responsive interior-materials showroom, built for Parth Agencies in Betul.
+[![LIVE PREVIEW](https://img.shields.io/badge/LIVE_PREVIEW-OPEN_WEBSITE-84b642?style=for-the-badge)](https://parth-agency.vercel.app)
 
-[![Live Preview](https://img.shields.io/badge/LIVE_PREVIEW-Visit_Site-84b642?style=for-the-badge)](https://parth-agency.vercel.app)
+**Live:** https://parth-agency.vercel.app
+**Source:** https://github.com/satitech-admin/parth-agency
 
-**Live preview:** https://parth-agency.vercel.app — production deployment on Vercel. GitHub Pages can also be enabled separately.
+## Website
+Responsive multi-page premium materials showroom experience for Parth Agencies, Betul, Madhya Pradesh. Handwritten HTML, CSS and vanilla JavaScript; no paid libraries or build step.
 
-## Features
-- Cinematic video hero with photographic fallback; PA animated loader
-- Responsive navigation, marquee, scroll reveals, premium hover cards
-- Six material collections: plywood, laminates, veneers, hardware, locks & fittings, adhesives
-- Design-inspiration gallery, user-provided Google review, map and showroom contact
-- WhatsApp category enquiries, Instagram, tap-to-call, Google Maps directions
-- No build tools, no paid packages. Vanilla HTML, CSS, JavaScript.
+### Pages
+- [Home](https://parth-agency.vercel.app/index.html) — cinematic hero video element, poster fallback, marquee, interactive category showcase, customer reviews
+- [Collections](https://parth-agency.vercel.app/collection.html) — searchable by clickable category filters and individual category details via URL parameters
+- [About](https://parth-agency.vercel.app/about.html)
+- [Gallery](https://parth-agency.vercel.app/gallery.html) — labeled inspiration photos
+- [Reviews](https://parth-agency.vercel.app/reviews.html) — manual sliding carousel containing user-provided Google review excerpts
+- [Contact](https://parth-agency.vercel.app/contact.html) — validated form that opens prefilled WhatsApp message, phone, map and Instagram
 
-## Preview locally
-Open `index.html` in a browser, or run `python -m http.server 8000` and open http://localhost:8000.
+### Design and interactions
+Original client-supplied PA logo included as a compressed image embedded in `assets/parth-logo.svg`. Loader animation, scroll reveal, animated product image zoom, marquee, mobile menu, floating WhatsApp and back-to-top arrow. Responsive grids and reduced-motion preference support.
+
+### Contact form behavior
+The form validates the name, phone, material and requirement, **then opens WhatsApp** with a prefilled enquiry for +91 98260 37244. The visitor **must press Send in WhatsApp**. No message is automatically sent and no form database stores customer data.
+
+### Photo/video disclosure
+- Lifestyle photos are stock inspiration, **not verified product inventory or completed projects**.
+- Hero currently references a Pexels remote MP4. It has an image fallback, but remote playback remains unverified. Replace with an approved optimized video asset for production.
+- Source/client brief contained **three real Google review quotations**, displayed as a carousel. Ratings for Google were not verified; do not show an invented Google rating. Public Justdial pages gave inconsistent ratings (4.5 to 4.9 with 59 reviews), so these are not labeled as Google ratings.
+
+### Before handing off to client
+- Confirm exact store address, location pin and opening hours. Public sources give College Road / PNB vs Badora / Green Park.
+- Confirm WhatsApp is active on +91 98260 37244.
+- Supply actual product, showroom and project photographs and licensed hero video.
+- Confirm official Facebook/YouTube accounts; these unverified links are intentionally excluded.
+- Validate responsive layouts in actual Chrome, Safari and mobile devices.
+- Complete full product dataset if the customer wants inventory-driven catalog management; this version uses locally defined data.
+
+## Development
+Serve the directory with `python -m http.server 8000` and visit `http://localhost:8000`.
 
 ## Deployment
-GitHub Pages: repository Settings → Pages → deploy from branch `main`, directory `/(root)`.
-Vercel: import `satitech-admin/parth-agency` with framework **Other**, no build command.
-
-## Verify before launch
-1. Business address: provided College Road / PNB, Ganj vs Instagram Badora / Green Park discrepancy. Confirm actual map pin.
-2. Opening hours differ across public listings; hours intentionally excluded.
-3. Header uses a PA monogram inspired by client logo until official high-quality image is supplied.
-4. Hero Pexels external MP4 and image URLs must be playback-tested and replaced with locally hosted licensed assets if necessary.
-5. Stock interior imagery is illustrative only, not product inventory or completed-client work.
-6. Instagram URL was provided; official Facebook and YouTube URLs remain unverified and are not added.
-7. Confirm WhatsApp availability at +91 98260 37244.
-8. Current website is an interactive static catalogue and enquiry site, not a CMS or online checkout.
-
-## Contacts
-Phone: +91 98260 37244 · Instagram: https://www.instagram.com/parth_agencies/
-
-## Project files
-`index.html` — self-contained website and client-side material collection.
-`README.md` — project documentation, launch instructions and verification checklist.
+Vercel is connected to repository `satitech-admin/parth-agency` on the `main` branch, with production URL above. No build command required; static HTML/CSS/JS.
