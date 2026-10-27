@@ -1,4 +1,4 @@
-# Parth Agencies · Royal Emerald Luxe
+# Parth Agencies · Scandinavian Atelier
 
 [![LIVE PREVIEW](https://img.shields.io/badge/LIVE_PREVIEW-OPEN_WEBSITE-84b642?style=for-the-badge)](https://parth-agency.vercel.app)
 
@@ -51,3 +51,11 @@ Vercel is connected to repository `satitech-admin/parth-agency` on the `main` br
 ### Material guides
 `collection.html?type=plywood` and corresponding laminate, veneer, hardware, locks and adhesives routes include a 4-option searchable materials guide and specific WhatsApp enquiry links. These examples are educational and need client stock confirmation.
 
+
+## Scandinavian Atelier redesign (27 Oct 2026)
+- New `atelier.css`: warm ivory, oak-inspired imagery, sage/forest-green colors, serif editorial typography and responsive page-specific visual layouts.
+- New `atelier.js`: independent About/Reviews/Contact/Home editorial sections, gallery photograph changes, collection refinements and Font Awesome icon replacements.
+- Font Awesome 6.7.2 loaded via cdnjs on each public HTML page; no paid kit or API key.
+- Content browsing and WhatsApp form continue using `app.js`.
+- All six HTML entrypoints load CSS and JS in matching order; deployment is automatic via Vercel.
+- Some lifestyle images use Unsplash and hero video an external Pexels CDN, so actual content availability requires browser/network testing. Business logo is the client-provided graphic embedded in SVG.
