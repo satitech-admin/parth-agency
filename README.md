@@ -2,9 +2,9 @@
 
 Premium responsive interior-materials showroom, built for Parth Agencies in Betul.
 
-[![Live Preview](https://img.shields.io/badge/LIVE_PREVIEW-Visit_Site-84b642?style=for-the-badge)](https://satitech-admin.github.io/parth-agency/)
+[![Live Preview](https://img.shields.io/badge/LIVE_PREVIEW-Visit_Site-84b642?style=for-the-badge)](https://parth-agency.vercel.app)
 
-**Preview note:** The badge targets the GitHub Pages URL, but will work only after Pages is enabled under **Settings → Pages → Deploy from a branch → main / (root)**. A verified Vercel URL can replace it if deployed there.
+**Live preview:** https://parth-agency.vercel.app — production deployment on Vercel. GitHub Pages can also be enabled separately.
 
 ## Features
 - Cinematic video hero with photographic fallback; PA animated loader
