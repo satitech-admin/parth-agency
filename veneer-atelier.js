@@ -20,7 +20,29 @@ main.appendChild(el);
 const search=document.getElementById('vn-search'),filter=document.getElementById('vn-filter'),cards=document.getElementById('vn-cards');function draw(){const q=search.value.trim().toLowerCase();const arr=species.filter((s,i)=>(filter.value==='all'||(filter.value==='light'?i===1||i===3||i===4:i===0||i===2||i===5))&&s[0].toLowerCase().includes(q));cards.innerHTML=arr.map(s=>'<article class="vn-card"><div class="vn-card-grain" style="--vn-color:'+s[1]+'"></div><div><h3>'+s[0]+'</h3><p>'+s[2]+'</p><a href="'+wa('Hello Parth Agencies, please share '+s[0]+' veneer options, sizes and prices.')+'" target="_blank" rel="noopener">Enquire <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>').join('');document.getElementById('vn-count').textContent=arr.length+' types';}search.addEventListener('input',draw);filter.addEventListener('change',draw);draw();
 const swatches=document.getElementById('vn-swatches'),grain=document.getElementById('vn-grain'),furniture=document.getElementById('vn-furniture-panel');swatches.innerHTML=species.map((s,i)=>'<button type="button" data-index="'+i+'" style="--vn-swatch:'+s[1]+'" aria-pressed="'+(i===0)+'">'+s[0]+'</button>').join('');function setTone(i){const s=species[i];grain.style.setProperty('--vn-tone',s[1]);furniture.style.setProperty('--vn-tone',s[1]);document.getElementById('vn-selected').textContent=s[0];document.getElementById('vn-tone-wa').href=wa('Hello Parth Agencies, please share available '+s[0]+' veneer options.');swatches.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));}swatches.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>setTone(Number(b.dataset.index))));setTone(0);
 const modes={book:['Book Match','Adjacent sheets mirror each other to create symmetrical grain patterns.'],slip:['Slip Match','Adjacent veneer sheets are aligned in repeated orientation.'],random:['Random Match','Grain directions and appearance are varied for a less uniform effect.'],quarter:['Quarter Cut','Illustrative straighter, narrow wood-grain direction.']};document.querySelectorAll('.vn-match-buttons button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.vn-match-buttons button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const mode=b.dataset.mode;document.getElementById('vn-match-preview').dataset.mode=mode;document.getElementById('vn-match-title').textContent=modes[mode][0];document.getElementById('vn-match-description').textContent=modes[mode][1]}));document.querySelector('.vn-match-buttons button').click();
-document.querySelectorAll('#vn-apps button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#vn-apps button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelector('.vn-furniture').dataset.application=b.dataset.label.toLowerCase().replaceAll(' ','-');document.getElementById('vn-app-label').textContent=b.dataset.label+' — illustrative preview using selected veneer tone.'}));
+const applicationImages={
+'Wardrobe':'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80',
+'Wall panels':'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=80',
+'TV unit':'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80'
+};
+const furniturePreview=document.querySelector('.vn-furniture');
+const previewImage=document.createElement('img');
+previewImage.id='vn-application-image';previewImage.className='vn-application-image';
+previewImage.alt='Wardrobe interior design inspiration';previewImage.loading='lazy';
+previewImage.src=applicationImages.Wardrobe;
+previewImage.onerror=()=>{previewImage.style.opacity='0'};
+furniturePreview.insertBefore(previewImage,furniturePreview.firstChild);
+document.querySelectorAll('#vn-apps button').forEach(b=>b.addEventListener('click',()=>{
+document.querySelectorAll('#vn-apps button').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false')});
+b.classList.add('active');b.setAttribute('aria-pressed','true');
+const label=b.dataset.label;
+furniturePreview.dataset.application=label.toLowerCase().replaceAll(' ','-');
+previewImage.style.opacity='0';previewImage.alt=label+' interior design inspiration';
+previewImage.src=applicationImages[label];
+if(previewImage.complete&&previewImage.naturalWidth>0)previewImage.style.opacity='1';
+previewImage.onload=()=>{previewImage.style.opacity='1'};
+document.getElementById('vn-app-label').textContent=label+' — illustrative preview using selected veneer tone.';
+}));
 document.getElementById('vn-calculator').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.currentTarget);const area=Number(d.get('length'))*Number(d.get('width'))*Number(d.get('count'))*(1+Number(d.get('waste'))/100);document.getElementById('vn-estimate').textContent='Approx. '+Math.ceil(area/(243.84*121.92))+' standard 8 × 4 ft sheets by area only. Confirm grain matching, real sheet size and cutting waste.'});
 document.getElementById('vn-quote-species').innerHTML=species.map(s=>'<option>'+s[0]+'</option>').join('');
 document.getElementById('vn-enquiry').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const d=new FormData(e.currentTarget);const message='Hello Parth Agencies!\nName: '+d.get('name')+'\nPhone: '+d.get('phone')+'\nVeneer: '+d.get('species')+'\nQuantity: '+(d.get('quantity')||'To discuss')+'\nProject: '+d.get('message');window.location.href=wa(message)});
