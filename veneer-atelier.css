@@ -4,3 +4,9 @@
 #veneer-atelier .vn-furniture .vn-furniture-wall,#veneer-atelier .vn-furniture .vn-furniture-panel{opacity:0;pointer-events:none}
 #veneer-atelier .vn-furniture small{z-index:2}
 @media(prefers-reduced-motion:reduce){#veneer-atelier .vn-furniture .vn-application-image{transition:none}}
+
+/* Veneers hero photo: scoped, no layout or typography changes */
+body[data-page="collections"] .pagehero:has(.veneer-hero-picture){isolation:isolate}
+.veneer-hero-picture{position:absolute;top:0;right:0;width:48%;height:100%;object-fit:cover;opacity:.34;pointer-events:none;z-index:-1;-webkit-mask-image:linear-gradient(to right,transparent,black 65%);mask-image:linear-gradient(to right,transparent,black 65%)}
+body[data-page="collections"] .pagehero:has(.veneer-hero-picture) .wrap{position:relative;z-index:2}
+@media(max-width:760px){.veneer-hero-picture{width:100%;opacity:.15;-webkit-mask-image:linear-gradient(to bottom,transparent,black);mask-image:linear-gradient(to bottom,transparent,black)}}
